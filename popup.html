@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Udemy Translator</title>
+    <style>
+        body {
+            width: 300px;
+            height: 200px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex justify-content-between">
+        <h1>Udemy Translator</h1>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Aç/Kapa</label>
+        </div>
+    </div>
+
+
+
+    <div style="display: none;" id="open" class="ms-1 me-1 mb-3">
+        <div class="row">
+            <div class="d-flex align-items-start mb-3">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active btn-sm" id="v-pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                        aria-selected="true">Hakkında</button>
+                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false">Dil Seçenekleri</button>
+                    <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                        aria-selected="false">Ayarlar</button>
+                </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <p>Udemy Translator, Udemy platformunda bulunan kursların içeriklerini istediğiniz dile
+                            çevirmenize olanak sağlar.</p>
+
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">
+                        <select id="language" class="form-select" aria-label="Default select example">
+                            <option selected>Lütfen seçiniz</option>
+                            <option value="tr">Türkçe</option>
+                            <option value="ku">Kürtçe</option>
+                            <option value="fr">Fransızca</option>
+                        </select>
+                        <br>
+                        <div class="d-flex justify-content-end">
+                            <button id="language-save" class="btn btn-outline-success btn-sm">Kaydet</button>
+                        </div>
+                    </div>
+                
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab">
+                        <form action="">
+                            <div class="mb-3">
+                                <label for="googleapi" class="form-label">Google API</label>
+                                <input type="text" class="form-control" id="googleapi" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Bu alana google api keyinizi girerek uygulamayı
+                                    kullanabilirsiniz.
+                                </div>
+                                <div class="d-flex justify-content-end mt-2">
+                                    <button type="button" id="googleapi-save" class="btn btn-outline-success btn-sm">Kaydet</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="close" class="ms-1 me-1 mb-3">
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Aktif değil!</h4>
+                <p>Kullanmak için eklentiyi aktif hale getiriniz.</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/jquery.js"></script>
+
+    <script src="content.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/bundle.js"></script>
+    <script src="/scripts/popper.min.js"></script>
+ 
+
+</body>
+
+</html>
