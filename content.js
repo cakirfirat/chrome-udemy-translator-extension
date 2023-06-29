@@ -6,7 +6,7 @@ $("#language-save").click(function () {
 });
 
 
-//AIzaSyA_ReGwMa3o3MtVIZQ73PZZWPKmTkvtX_s
+
 $("#googleapi-save").click(function () {
     var googleapi = $("#googleapi").val();
     chrome.storage.local.set({ 'googleapi': googleapi }, function () {
@@ -32,6 +32,7 @@ function observeCaptionChanges(targetNode) {
                 if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                     var lang = "tr"
                     var text = $('.captions-display--captions-cue-text--ECkJu').text();
+                    $('.captions-display--captions-cue-text--ECkJu').text("");
                     chrome.storage.local.get(["language"], function (result) {
                         lang = result.language;
                     });
@@ -84,16 +85,6 @@ var loadingObserver = new MutationObserver(function (mutations) {
     }
 });
 
-// Gözlemciyi başlatın
-
-var loadingObserver = new MutationObserver(function (mutations) {
-    var targetNode = document.querySelector('[data-purpose="captions-cue-text"]');
-    if (targetNode) {
-        loadingObserver.disconnect();  // Element bulunduğunda, gözlemciyi durdurun
-        observeCaptionChanges(targetNode);  // Element bulunduğunda, orijinal işlevi çağırın
-    }
-});
-
 $("#flexSwitchCheckDefault").change(function () {
     if ($(this).is(":checked")) {
         chrome.storage.local.set({ 'isActive': true }, function () {
@@ -111,19 +102,5 @@ $("#flexSwitchCheckDefault").change(function () {
     }
 });
 
-var ss;
-chrome.storage.local.get(["isActive"], function (result) {
-    var isActive = result.isActive;
-    if (isActive) {
-      $("#flexSwitchCheckDefault").prop("checked", true);
-      $("#close").css("display", "none");
-      $("#open").css("display", "");
-      ss = true;
-    }
-  });
+loadingObserver.observe(document, { childList: true, subtree: true });
 
-if (ss==true) {
-    loadingObserver.observe(document, { childList: true, subtree: true });
-} else {
-    console.log("not active")
-}
